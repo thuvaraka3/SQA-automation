@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ============================================================
+     log4j2.xml - Log4j2 Logging Configuration
+     ============================================================
+     This configures how our application logs messages. We have
+     two "appenders" (output destinations): the console and a file.
+     ============================================================ -->
+
+<Configuration status="WARN">
+    <!-- Define where log messages go -->
+    <Appenders>
+        <!-- Console appender: prints to the terminal / IntelliJ Run window -->
+        <Console name="Console" target="SYSTEM_OUT">
+            <!-- Format: time [thread] LEVEL loggerName - message -->
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+
+        <!-- File appender: saves logs to a file for later review -->
+        <File name="File" fileName="logs/automation.log">
+            <!-- Same format as console but with full date -->
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </File>
+    </Appenders>
+
+    <!-- Configure which loggers use which appenders -->
+    <Loggers>
+        <!-- Root logger: catches all log messages from all classes -->
+        <Root level="info">
+            <AppenderRef ref="Console"/>  <!-- Also print to console -->
+            <AppenderRef ref="File"/>     <!-- Save to log file -->
+        </Root>
+    </Loggers>
+</Configuration>

@@ -1,0 +1,21 @@
+
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Sauce Demo Automation Suite" verbose="1" parallel="false">
+
+    <!-- Custom listener for ExtentReports and Log4j2 integration -->
+    <listeners>
+        <listener class-name="listeners.TestListener"/>
+    </listeners>
+
+    <!-- Define a test that runs all our test classes -->
+    <test name="All Tests">
+        <classes>
+            <!-- Each class here is a TestNG test class containing @Test methods -->
+            <class name="tests.LoginTests"/>
+            <class name="tests.ProductTests"/>
+            <class name="tests.CartTests"/>
+            <class name="tests.CheckoutTests"/>
+        </classes>
+    </test>
+
+</suite>

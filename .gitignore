@@ -1,0 +1,8 @@
+target/
+.idea/
+*.log
+*.class
+logs/
+reports/test-output/
+reports/extent-report.html
+testdata/*.xlsx
